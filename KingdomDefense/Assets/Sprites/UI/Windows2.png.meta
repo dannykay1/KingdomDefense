@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 2d530586c17ea284ab2d85a3973a84d9
+timeCreated: 1501288921
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Windows2_0
+    21300002: Windows2_1
+    21300004: Windows2_2
+    21300006: Windows2_3
+    21300008: Windows2_4
+    21300010: Windows2_5
+    21300012: Windows2_8
+    21300014: Windows2_9
+    21300016: Windows2_12
+    21300018: Windows2_14
+    21300020: Windows2_21
+    21300022: Windows2_22
+    21300024: Windows2_24
+    21300026: Windows2_25
+    21300028: Windows2_36
+    21300030: Windows2_37
+    21300032: Windows2_38
+    21300034: Windows2_41
+    21300036: Windows2_42
+    21300038: Metal_Bottom
+    21300040: Windows2_44
+    21300042: Windows2_45
+    21300044: Chain
+    21300046: Windows2_47
+    21300048: Windows2_48
+    21300050: Windows2_49
+    21300052: Windows2_50
+    21300054: Windows2_51
+    21300056: Windows2_52
+    21300058: Windows2_53
+    21300060: Windows2_54
+    21300062: Windows2_55
+    21300064: Windows2_56
+    21300066: Windows2_57
+    21300068: Windows2_58
+    21300070: Windows2_59
+    21300072: Windows2_60
+    21300074: Windows2_61
+    21300076: Windows2_62
+    21300078: Windows2_63
+    21300080: Windows2_64
+    21300082: Windows2_65
+    21300084: Windows2_66
+    21300086: Windows2_67
+    21300088: Windows2_70
+    21300090: Windows2_71
+    21300092: Windows2_72
+    21300094: Windows2_73
+    21300096: Windows2_76
+    21300098: Windows2_78
+    21300100: Windows2_80
+    21300102: Windows2_83
+    21300104: Windows2_84
+    21300106: Windows2_85
+    21300108: Windows2_87
+    21300110: Windows2_88
+    21300112: Windows2_90
+    21300114: Windows2_92
+    21300116: Windows2_95
+    21300118: Windows2_96
+    21300120: Windows2_97
+    21300122: Windows2_98
+    21300124: Windows2_99
+    21300126: Windows2_100
+    21300128: Windows2_101
+    21300130: Windows2_102
+    21300132: Windows2_105
+    21300134: Windows2_106
+    21300136: Windows2_107
+    21300138: Windows2_108
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 8192
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Windows2_0
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 8803
+        width: 860
+        height: 837
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Windows2_3
+      rect:
+        serializedVersion: 2
+        x: 2326
+        y: 9511
+        width: 543
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Windows2_36
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 5595
+        width: 679
+        height: 726
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Metal_Bottom
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 5503
+        width: 89
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Chain
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 5265
+        width: 53
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Windows2_49
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 4311
+        width: 656
+        height: 878
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Windows2_60
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 3881
+        width: 460
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Windows2_63
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2863
+        width: 529
+        height: 1079
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Windows2_76
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1605
+        width: 1233
+        height: 1038
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Windows2_1
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 920
+        width: 1256
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
