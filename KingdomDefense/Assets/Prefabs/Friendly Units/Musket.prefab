@@ -475,7 +475,7 @@ Animator:
   m_GameObject: {fileID: 1249297435729820}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 1caf8087b5c9e504d9d9eac5a41dab78, type: 2}
+  m_Controller: {fileID: 22100000, guid: 9d63c663433772c48b4bcbffdff7ff96, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -514,9 +514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d4b48e39141734096f82001d5cc108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealth: 5
+  StartingHealth: 10
   Damage: 3
-  AnimationDelay: 0.5
+  AnimationDelay: 0.417
+  NextAttackDelay: 0.75
   Cost: 100
   ProjectileSpawn: {fileID: 4951917479697072}
   ProjectilePrefab: {fileID: 114518666846749084, guid: e024b2176f7b616419df562db1ac5e68,
@@ -525,7 +526,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   AttackRange: 50
-  Delay: 0.5
 --- !u!210 &210623594755365284
 SortingGroup:
   m_ObjectHideFlags: 1

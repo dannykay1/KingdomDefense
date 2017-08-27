@@ -28,10 +28,9 @@ public class FriendlyUnit : Unit
             if ( enemy == null ) return;
 
             if ( !Enemies.Contains( enemy ) )
-            {
                 Enemies.Add( enemy );
-                PlayAttackAnim( );
-            }
+
+            StartCoroutine( "AttackWithDelay" );
         }
     }
 
@@ -43,10 +42,9 @@ public class FriendlyUnit : Unit
             if ( enemy == null ) return;
 
             if ( Enemies.Contains( enemy ) )
-            {
                 Enemies.Remove( enemy );
-            }
 
+            StopCoroutine( "AttackWithDelay" );
             StopAttackAnim( );
         }
     }

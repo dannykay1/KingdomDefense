@@ -398,7 +398,7 @@ Animator:
   m_GameObject: {fileID: 1707303147190786}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 077c21e4d040cfb46b50770d130a3bf5, type: 2}
+  m_Controller: {fileID: 22100000, guid: 91a82765aad93854d92d90b76af4769d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -438,9 +438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c387dd83fb8d17a46b6a5d13e9accfe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealth: 5
+  StartingHealth: 10
   Damage: 1
-  AnimationDelay: 0.5
+  AnimationDelay: 0.58
+  NextAttackDelay: 0.5
   Cost: 150
 --- !u!210 &210295685699814622
 SortingGroup:

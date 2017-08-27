@@ -14,6 +14,8 @@ public abstract class Unit : MonoBehaviour
     [Header( "Animation Delay" )]
     [Range(0.1f, 1f)]
     public float AnimationDelay = 0.5f;
+    [Range( 0.1f, 1f )]
+    public float NextAttackDelay = 0.5f;
 
     public int Health { get; protected set; }
     protected Animator Anim;
@@ -41,6 +43,17 @@ public abstract class Unit : MonoBehaviour
     public virtual void PlayAttackAnim( )
     {
         Anim.SetBool( "HasTarget", true );
+    }
+
+    protected virtual IEnumerator AttackWithDelay( )
+    {
+        while ( Health > 0 )
+        {
+            PlayAttackAnim( );
+            yield return new WaitForSeconds( AnimationDelay );
+            StopAttackAnim( );
+            yield return new WaitForSeconds( NextAttackDelay );
+        }
     }
 
     public virtual void Attack( )

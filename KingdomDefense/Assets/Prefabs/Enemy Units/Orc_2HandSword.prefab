@@ -377,7 +377,7 @@ Animator:
   m_GameObject: {fileID: 1973747453235120}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 5e0345048abc9f24ba8e63b15739b102, type: 2}
+  m_Controller: {fileID: 22100000, guid: b755157d859b78047ad6f391f6f04e45, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -398,6 +398,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingHealth: 6
   Damage: 2
+  AnimationDelay: 0.583
+  NextAttackDelay: 1
   RewardValue: 25
   MoveSpeed: 3
 --- !u!114 &114520207157626200

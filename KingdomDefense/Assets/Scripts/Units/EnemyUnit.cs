@@ -45,6 +45,7 @@ public class EnemyUnit : Unit
     private IEnumerator MoveForward( )
     {
         MoveState = E_MOVE_STATE.WALK;
+        Anim.SetFloat( "Speed", 1f );
         while ( MoveState == E_MOVE_STATE.WALK && !IsDead )
         {
             transform.Translate( -Vector2.right * Time.deltaTime * MoveSpeed );
@@ -58,9 +59,14 @@ public class EnemyUnit : Unit
         {
             if ( other.GetComponent<FriendlyUnit>( ) != null )
             {
+                Anim.SetFloat( "Speed", 0f );
                 UnitToAttack = other.GetComponent<FriendlyUnit>( );
-                PlayAttackAnim( );
+                StartCoroutine( "AttackWithDelay" );
             }
+        }
+        else if ( other.tag == "Castle" )
+        {
+
         }
     }
 
@@ -69,6 +75,7 @@ public class EnemyUnit : Unit
         if ( other.tag == "Friendly" && !IsDead )
         {
             UnitToAttack = null;
+            StopCoroutine( "AttackWithDelay" );
             StopAttackAnim( );
             StartCoroutine( MoveForward( ) );
         }

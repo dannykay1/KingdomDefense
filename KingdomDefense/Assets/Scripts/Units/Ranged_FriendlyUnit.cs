@@ -14,10 +14,6 @@ public class Ranged_FriendlyUnit : FriendlyUnit
     [Range( 10f, 50f )]
     public float AttackRange = 20.0f;
 
-    [Header( "Attack Delay" )]
-    [Range(0.5f, 2.0f)]
-    public float Delay = 1f;
-
     public override void Init( )
     {
         base.Init( );
@@ -40,7 +36,7 @@ public class Ranged_FriendlyUnit : FriendlyUnit
                 }
             }
 
-            yield return new WaitForSeconds( Delay );
+            yield return new WaitForSeconds( NextAttackDelay );
         }
     }
 

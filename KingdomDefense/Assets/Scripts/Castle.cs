@@ -73,9 +73,7 @@ public class Castle : MonoBehaviour
             }
 
             if ( !IsDefending )
-            {
                 Defend( );
-            }
         }
     }
 
