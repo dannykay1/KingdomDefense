@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
         Gold = StartingGold;
         Board = GameObject.FindObjectOfType<BoardManager>( );
+        IsPaused = false;
 
         GameManager.OnUnitPurchased.AddListener( PurchaseUnit );
         GameManager.OnWaveStarted.AddListener( StartNextWave );
@@ -48,9 +49,23 @@ public class GameManager : MonoBehaviour
         GameManager.OnWaveStarted.Invoke( );
     }
 
+    public void Update( )
+    {
+        if ( Input.GetKeyDown( KeyCode.P ) )
+        {
+            InGameHUD.Instance.TogglePause( );
+        }
+    }
+
     public bool HasEnoughGoldToPurchase( int amount )
     {
         return Gold - amount >= 0;
+    }
+
+    public void TogglePause( )
+    {
+        IsPaused = !IsPaused;
+        Time.timeScale = ( IsPaused ) ? 0.0f : 1.0f;
     }
 
     public void AddGold( int goldAmount )
@@ -70,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNextWave( )
     {
+        SoundManager.Instance.PlayWaveStart( );
         StartCoroutine( SpawnEnemies( ) );
     }
 

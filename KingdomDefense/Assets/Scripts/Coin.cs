@@ -35,6 +35,7 @@ public class Coin : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick( PointerEventData eventData )
     {
+        SoundManager.Instance.PlayCoin( );
         WasClicked = true;
         Col2D.enabled = false;
         StartCoroutine( MoveToPosition( CollectedDestination ) );

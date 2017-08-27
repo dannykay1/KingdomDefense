@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 31215769c342143468a75c6df44fb042
-timeCreated: 1501289473
+timeCreated: 1503870245
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,9 @@ TextureImporter:
     21300012: Next_Highlighted
     21300014: Next_Pressed
     21300016: Circle
+    21300018: Pause Normal
+    21300020: Pause Highlight
+    21300022: Pause Pressed
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -211,6 +214,48 @@ TextureImporter:
         y: 12353
         width: 454
         height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pause Normal
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 7590
+        width: 456
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pause Highlight
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 7591
+        width: 455
+        height: 465
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pause Pressed
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 7590
+        width: 454
+        height: 466
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

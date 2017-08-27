@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class InGameHUD : MonoBehaviour
@@ -10,8 +11,11 @@ public class InGameHUD : MonoBehaviour
     public Image HealthSlider;
     public Text GoldText;
 
-    [Header("Wave Indicator")]
+    [Header( "Wave Indicator" )]
     public GameObject WaveIndicator;
+
+    [Header( "Pause" )]
+    public GameObject PauseText;
 
     private HorizontalLayoutGroup WaveIndicatorGrid;
 
@@ -22,6 +26,7 @@ public class InGameHUD : MonoBehaviour
 
         WaveIndicatorGrid = GameObject.Find( "Wave Indicators" ).GetComponent<HorizontalLayoutGroup>( );
         UpdateGoldText( );
+        PauseText.SetActive( false );
 
         GameManager.OnCastleHit.AddListener( UpdateCastleHealth );
         GameManager.OnWaveStarted.AddListener( SpawnWaveIndicator );
@@ -46,5 +51,12 @@ public class InGameHUD : MonoBehaviour
         health = ( health <= 0 ) ? 0 : health;
         float newHealth = health / 100.0f;
         HealthSlider.fillAmount = newHealth;
+    }
+
+    public void TogglePause( )
+    {
+        GameManager.Instance.TogglePause( );
+        PauseText.SetActive( GameManager.Instance.IsPaused );
+        EventSystem.current.SetSelectedGameObject( null );
     }
 }

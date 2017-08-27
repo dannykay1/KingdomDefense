@@ -8,13 +8,18 @@ public class SoundManager : MonoBehaviour
     [Header( "Attack Clips" )]
     public AudioClip[ ] Attacks;
     public AudioClip GunFire;
-    public AudioClip ArrowFire;
 
     [Header( "Impacts" )]
     public AudioClip BulletImpact;
     public AudioClip[ ] ArrowImpacts;
 
-    [Header( "Vicotry" )]
+    [Header( "Coin Pickup" )]
+    public AudioClip CoinPickup;
+
+    [Header( "Wave Start" )]
+    public AudioClip WaveStart;
+
+    [Header( "Victory" )]
     public AudioClip Victory;
 
     [Header( "Death Clips" )]
@@ -80,5 +85,15 @@ public class SoundManager : MonoBehaviour
         }
         else
             Source.PlayOneShot( BulletImpact );
+    }
+
+    public void PlayCoin()
+    {
+        Source.PlayOneShot( CoinPickup );
+    }
+
+    public void PlayWaveStart()
+    {
+        Source.PlayOneShot( WaveStart );
     }
 }
