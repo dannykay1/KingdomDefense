@@ -18,7 +18,7 @@ public class EnemyUnit : Unit
     public int RewardValue = 25;
 
     [Header( "Movement Speed" )]
-    [Range( 1f, 20f )]
+    [Range( 1f, 4f )]
     public float MoveSpeed = 5f;
 
     private FriendlyUnit UnitToAttack;
@@ -59,6 +59,7 @@ public class EnemyUnit : Unit
         {
             if ( other.GetComponent<FriendlyUnit>( ) != null )
             {
+                MoveState = E_MOVE_STATE.ATTACK;
                 Anim.SetFloat( "Speed", 0f );
                 UnitToAttack = other.GetComponent<FriendlyUnit>( );
                 StartCoroutine( "AttackWithDelay" );
@@ -66,7 +67,14 @@ public class EnemyUnit : Unit
         }
         else if ( other.tag == "Castle" )
         {
-
+            Castle castle = other.transform.parent.GetComponent<Castle>( );
+            if ( castle != null )
+            {
+                MoveState = E_MOVE_STATE.ATTACK;
+                Anim.SetFloat( "Speed", 0f );
+                CastleToAttack = castle;
+                StartCoroutine( "AttackWithDelay" );
+            }
         }
     }
 
@@ -89,13 +97,16 @@ public class EnemyUnit : Unit
             UnitToAttack.ApplyDamage( Damage );
 
         if ( CastleToAttack != null )
+        {
             CastleToAttack.ApplyDamage( Damage );
+            SoundManager.Instance.PlayRandomAttack( );
+        }
     }
 
     public override void Die( )
     {
         base.Die( );
-
+        SoundManager.Instance.PlayRandomDeath( false );
         GameManager.Instance.AddGold( RewardValue );
         GameManager.OnEnemyUnitDeath.Invoke( this );
     }

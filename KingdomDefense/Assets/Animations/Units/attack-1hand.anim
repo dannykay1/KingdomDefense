@@ -2248,7 +2248,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bounce/Shoulder
+    path: Bounce/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2258,7 +2258,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bounce/Shoulder
+    path: Bounce/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2268,7 +2268,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bounce/Shoulder
+    path: Bounce/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2308,7 +2308,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bounce/Hand2
+    path: Bounce/Hand1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2318,7 +2318,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bounce/Hand2
+    path: Bounce/Hand1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2328,7 +2328,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bounce/Hand2
+    path: Bounce/Hand1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2338,7 +2338,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bounce/Head
+    path: Bounce/Hand2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2348,7 +2348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bounce/Head
+    path: Bounce/Hand2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2358,7 +2358,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bounce/Head
+    path: Bounce/Hand2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2398,7 +2398,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bounce/Hand1
+    path: Bounce/Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2408,7 +2408,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bounce/Hand1
+    path: Bounce/Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2418,7 +2418,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bounce/Hand1
+    path: Bounce/Shoulder
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

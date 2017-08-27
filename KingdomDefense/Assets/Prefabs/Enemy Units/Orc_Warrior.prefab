@@ -401,7 +401,7 @@ MonoBehaviour:
   AnimationDelay: 0.583
   NextAttackDelay: 0.5
   RewardValue: 15
-  MoveSpeed: 5
+  MoveSpeed: 4
 --- !u!114 &114676188889651334
 MonoBehaviour:
   m_ObjectHideFlags: 1

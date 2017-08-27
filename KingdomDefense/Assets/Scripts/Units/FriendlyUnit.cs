@@ -52,6 +52,7 @@ public class FriendlyUnit : Unit
     public override void Die( )
     {
         base.Die( );
+        SoundManager.Instance.PlayRandomDeath( );
         GameManager.OnFriendlyUnitDeath.Invoke( );
     }
 }

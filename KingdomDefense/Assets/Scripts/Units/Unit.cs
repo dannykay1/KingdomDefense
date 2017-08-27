@@ -12,7 +12,7 @@ public abstract class Unit : MonoBehaviour
     public int Damage = 1;
 
     [Header( "Animation Delay" )]
-    [Range(0.1f, 1f)]
+    [Range( 0.1f, 1f )]
     public float AnimationDelay = 0.5f;
     [Range( 0.1f, 1f )]
     public float NextAttackDelay = 0.5f;
@@ -40,11 +40,6 @@ public abstract class Unit : MonoBehaviour
 
     }
 
-    public virtual void PlayAttackAnim( )
-    {
-        Anim.SetBool( "HasTarget", true );
-    }
-
     protected virtual IEnumerator AttackWithDelay( )
     {
         while ( Health > 0 )
@@ -54,6 +49,17 @@ public abstract class Unit : MonoBehaviour
             StopAttackAnim( );
             yield return new WaitForSeconds( NextAttackDelay );
         }
+    }
+
+    protected virtual AudioClip GetRandomClip( AudioClip[ ] clips )
+    {
+        int randIndex = Random.Range( 0, clips.Length );
+        return clips[ randIndex ];
+    }
+
+    public virtual void PlayAttackAnim( )
+    {
+        Anim.SetBool( "HasTarget", true );
     }
 
     public virtual void Attack( )

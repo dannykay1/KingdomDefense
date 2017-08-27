@@ -421,7 +421,7 @@ MonoBehaviour:
   AnimationDelay: 0.583
   NextAttackDelay: 0.55
   RewardValue: 10
-  MoveSpeed: 4
+  MoveSpeed: 3
 --- !u!210 &210806864312258970
 SortingGroup:
   m_ObjectHideFlags: 1

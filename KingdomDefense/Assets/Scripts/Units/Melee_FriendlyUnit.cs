@@ -6,6 +6,7 @@ public class Melee_FriendlyUnit : FriendlyUnit
     public override void Attack( )
     {
         base.Attack( );
+        SoundManager.Instance.PlayRandomAttack( );
         ApplyDamageToEnemies( );
     }
 

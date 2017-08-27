@@ -66,11 +66,7 @@ public class Castle : MonoBehaviour
             if ( enemy == null ) return;
 
             if ( !EnemiesAttacking.Contains( enemy ) )
-            {
-                enemy.CastleToAttack = this;
-                enemy.PlayAttackAnim( );
                 EnemiesAttacking.Add( enemy );
-            }
 
             if ( !IsDefending )
                 Defend( );
@@ -85,9 +81,7 @@ public class Castle : MonoBehaviour
             if ( enemy == null ) return;
 
             if ( EnemiesAttacking.Contains( enemy ) )
-            {
                 EnemiesAttacking.Remove( enemy );
-            }
         }
 
         if ( EnemiesAttacking.Count == 0 )

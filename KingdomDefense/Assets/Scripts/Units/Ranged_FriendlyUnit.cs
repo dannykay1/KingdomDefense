@@ -11,8 +11,8 @@ public class Ranged_FriendlyUnit : FriendlyUnit
     public LayerMask AttackLayer;
 
     [Header( "Attack Range" )]
-    [Range( 10f, 50f )]
-    public float AttackRange = 20.0f;
+    [Range( 1f, 25f )]
+    public float AttackRange = 6f;
 
     public override void Init( )
     {

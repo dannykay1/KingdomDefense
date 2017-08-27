@@ -42,6 +42,16 @@ public class Projectile : MonoBehaviour
     {
         if ( other.tag == "Enemy" && !HitTarget )
         {
+            switch ( MoveDirection )
+            {
+                case E_MOVE_DIRECTION.DOWN:
+                    SoundManager.Instance.PlayImpact( true );
+                    break;
+                case E_MOVE_DIRECTION.RIGHT:
+                    SoundManager.Instance.PlayImpact( );
+                    break;
+            }
+
             HitTarget = true;
 
             EnemyUnit enemy = other.GetComponent<EnemyUnit>( );
@@ -54,6 +64,16 @@ public class Projectile : MonoBehaviour
 
     protected virtual IEnumerator Fire( )
     {
+        switch ( MoveDirection )
+        {
+            case E_MOVE_DIRECTION.DOWN:
+                //SoundManager.Instance.PlayFire( true );
+                break;
+            case E_MOVE_DIRECTION.RIGHT:
+                SoundManager.Instance.PlayFire( );
+                break;
+        }
+
         while ( true )
         {
             transform.Translate( Direction * MoveSpeed * Time.deltaTime );
