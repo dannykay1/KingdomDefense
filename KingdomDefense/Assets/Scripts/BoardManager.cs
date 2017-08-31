@@ -118,12 +118,13 @@ public class BoardManager : MonoBehaviour
         if ( Enemies.Contains( enemy ) )
         {
             Enemies.Remove( enemy );
+            GameManager.Instance.Stats.EnemiesKilled++;
         }
 
-        if ( Enemies.Count <= 0 )
+        if ( Enemies.Count <= 0 && !GameManager.Instance.IsSpawningEnemies )
         {
             Enemies.Clear( );
-            GameManager.Instance.PerformWaveCountdown( );
+            GameManager.Instance.ProcessEndOfWave( );
         }
     }
 
@@ -142,6 +143,8 @@ public class BoardManager : MonoBehaviour
 
     public void SpawnCoin( )
     {
+        if ( !GameManager.Instance.IsSpawningEnemies ) return;
+
         Vector2 spawnPos = new Vector2( GetRandomTile( ).GetRandomPointInTile( ).x, Spawn.position.y );
         Instantiate( CoinPrefab, spawnPos, Quaternion.identity );
     }

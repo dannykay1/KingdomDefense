@@ -2,6 +2,22 @@
 using UnityEngine.Events;
 using System.Collections;
 
+public struct WaveStats
+{
+    public int WaveNumber;
+    public int EnemiesKilled;
+    public int GoldEarned;
+    public int GoldSpent;
+
+    public void Reset()
+    {
+        WaveNumber = 0;
+        EnemiesKilled = 0;
+        GoldEarned = 0;
+        GoldSpent = 0;
+    }
+}
+
 public class GameManager : MonoBehaviour
 {
     public static UnitDropEvent OnUnitDrop = new UnitDropEvent( );
@@ -23,10 +39,15 @@ public class GameManager : MonoBehaviour
     public int WaveNumber = 1;
     [Range( 10, 20 )]
     public int MaxWaveNum = 10;
+    [Range( 0.1f, 5f )]
+    public float WaveStartDelay = 3.0f;
     public Vector2 EnemySpawnDelay = new Vector2( 1f, 10f );
 
     public int Gold { get; set; }
     public bool IsPaused { get; set; }
+    public bool IsSpawningEnemies { get; set; }
+    [HideInInspector]
+    public WaveStats Stats;
 
     public BoardManager Board { get; private set; }
 
@@ -37,7 +58,7 @@ public class GameManager : MonoBehaviour
 
         Gold = StartingGold;
         Board = GameObject.FindObjectOfType<BoardManager>( );
-        IsPaused = false;
+        IsPaused = IsSpawningEnemies = false;
 
         GameManager.OnUnitPurchased.AddListener( PurchaseUnit );
         GameManager.OnWaveStarted.AddListener( StartNextWave );
@@ -71,6 +92,7 @@ public class GameManager : MonoBehaviour
     public void AddGold( int goldAmount )
     {
         Gold += goldAmount;
+        Stats.GoldEarned += goldAmount;
         InGameHUD.Instance.UpdateGoldText( );
     }
 
@@ -79,18 +101,22 @@ public class GameManager : MonoBehaviour
         if ( HasEnoughGoldToPurchase( unit.Cost ) )
         {
             Gold -= unit.Cost;
+            Stats.GoldSpent += unit.Cost;
             InGameHUD.Instance.UpdateGoldText( );
         }
     }
 
     public void StartNextWave( )
     {
-        SoundManager.Instance.PlayWaveStart( );
+        //SoundManager.Instance.PlayWaveStart( );
+        Stats.Reset( );
         StartCoroutine( SpawnEnemies( ) );
     }
 
     private IEnumerator SpawnEnemies( )
     {
+        IsSpawningEnemies = true;
+        yield return new WaitForSeconds( WaveStartDelay );
         for ( int i = 0; i < Board.GetNumEnemiesToSpawn( ); i++ )
         {
             Board.SpawnEnemy( );
@@ -98,12 +124,15 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds( randSpawnDelay );
         }
 
+        IsSpawningEnemies = false;
         yield return null;
     }
 
-    public void PerformWaveCountdown( )
+    public void ProcessEndOfWave( )
     {
-        GameManager.OnWaveStarted.Invoke( );
+        WaveNumber++;
+        WaveNumber = Mathf.Clamp( WaveNumber, 1, MaxWaveNum );
+        InGameHUD.Instance.ToggleWaveInfoMenu( true );
     }
 }
 

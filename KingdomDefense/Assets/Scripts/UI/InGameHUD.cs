@@ -17,6 +17,10 @@ public class InGameHUD : MonoBehaviour
     [Header( "Pause" )]
     public GameObject PauseText;
 
+    [Header( "Wave Info" )]
+    public Animator WaveInfoMenu;
+    public Text WaveInfoText;
+
     private HorizontalLayoutGroup WaveIndicatorGrid;
 
     private void Awake( )
@@ -58,5 +62,23 @@ public class InGameHUD : MonoBehaviour
         GameManager.Instance.TogglePause( );
         PauseText.SetActive( GameManager.Instance.IsPaused );
         EventSystem.current.SetSelectedGameObject( null );
+    }
+
+    public void ToggleWaveInfoMenu( bool moveIn )
+    {
+        string waveNum = GameManager.Instance.WaveNumber + "/" + GameManager.Instance.MaxWaveNum;
+        string enemiesKilled = GameManager.Instance.Stats.EnemiesKilled.ToString( );
+        string goldEarned = GameManager.Instance.Stats.GoldEarned.ToString( );
+        string goldSpent = GameManager.Instance.Stats.GoldSpent.ToString( );
+
+        WaveInfoText.text = string.Format( "{0}\n{1}\n${2}\n${3}", waveNum, enemiesKilled, goldEarned, goldSpent );
+
+        WaveInfoMenu.SetBool( "MoveIn", moveIn );
+    }
+
+    public void GoToNextWave( )
+    {
+        ToggleWaveInfoMenu( false );
+        GameManager.OnWaveStarted.Invoke( );
     }
 }
