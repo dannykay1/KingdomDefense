@@ -11,7 +11,7 @@ public class Castle : MonoBehaviour
     [Header( "Trigger" )]
     public BoxCollider2D DefendTrigger;
 
-    [Header("Arrow Properties")]
+    [Header( "Arrow Properties" )]
     public Transform ArrowSpawnTransform;
     public Projectile ArrowPrefab;
     [Range( 1, 20 )]
@@ -95,10 +95,6 @@ public class Castle : MonoBehaviour
         Health -= damage;
         GameManager.OnCastleHit.Invoke( Health );
         if ( Health <= 0 )
-        {
-            // TODO:
-            // Do gameover stuff in gamemanger.
-            // GameManager.Instance.GameOver();
-        }
+            GameManager.Instance.GameOver( );
     }
 }

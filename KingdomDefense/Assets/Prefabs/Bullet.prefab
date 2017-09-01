@@ -91,6 +91,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveDirection: 1
   MoveSpeed: 14
+  SpawnImpact: 1
+  ImpactEffect: {fileID: 1290765482095382, guid: 06acb42951026054e81902a5d593a632,
+    type: 2}
 --- !u!212 &212202291323757666
 SpriteRenderer:
   m_ObjectHideFlags: 1

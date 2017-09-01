@@ -6,27 +6,26 @@ using System.Collections;
 
 public class MenuController : MonoBehaviour
 {
-    public Menu startMenu;
-    public Menu optionsMenu;
-    public Menu howToPlayMenu;
-    public Menu creditsMenu;
+    [Header( "Menus" )]
+    public Menu StartMenu;
+    public Menu HowToPlayMenu;
+    public Menu CreditsMenu;
 
+    [Header( "Menu Config" )]
     [Range( 0.1f, 1f )]
-    public float transitionDelay = 0.1f;
-    public Image[ ] howToPlayImages;
+    public float TransitionDelay = 0.1f;
+    public Image[ ] HowToPlayImages;
 
     private int currentIndex = 0;
 
     void Start( )
     {
-        startMenu.TransitionIn( );
+        StartMenu.TransitionIn( );
 
-        for ( int i = 0; i < howToPlayImages.Length; i++ )
-        {
-            howToPlayImages[ i ].gameObject.SetActive( false );
-        }
+        for ( int i = 0; i < HowToPlayImages.Length; i++ )
+            HowToPlayImages[ i ].gameObject.SetActive( false );
 
-        howToPlayImages[ 0 ].gameObject.SetActive( true );
+        HowToPlayImages[ 0 ].gameObject.SetActive( true );
     }
 
     public void OpenScene( string sceneName )
@@ -36,67 +35,52 @@ public class MenuController : MonoBehaviour
 
     public void OpenStartMenu( )
     {
-        if ( creditsMenu.Anim.GetBool( "MoveIn" ) )
+        if ( CreditsMenu.Anim.GetBool( "MoveIn" ) )
         {
-            creditsMenu.TransitionOut( );
-            StartCoroutine( MenuTransition( startMenu, creditsMenu ) );
+            CreditsMenu.TransitionOut( );
+            StartCoroutine( MenuTransition( StartMenu, CreditsMenu ) );
         }
 
-        if ( howToPlayMenu.Anim.GetBool( "MoveIn" ) )
+        if ( HowToPlayMenu.Anim.GetBool( "MoveIn" ) )
         {
-            howToPlayMenu.TransitionOut( );
-            StartCoroutine( MenuTransition( startMenu, howToPlayMenu ) );
+            HowToPlayMenu.TransitionOut( );
+            StartCoroutine( MenuTransition( StartMenu, HowToPlayMenu ) );
         }
-    }
-
-    public void OpenOptionsMenu( )
-    {
-        optionsMenu.TransitionIn( );
     }
 
     public void OpenHowToPlayMenu( )
     {
-        startMenu.TransitionOut( );
-        optionsMenu.TransitionOut( );
+        StartMenu.TransitionOut( );
 
-        for ( int i = 0; i < howToPlayImages.Length; i++ )
-        {
-            howToPlayImages[ i ].gameObject.SetActive( false );
-        }
+        for ( int i = 0; i < HowToPlayImages.Length; i++ )
+            HowToPlayImages[ i ].gameObject.SetActive( false );
 
-        howToPlayImages[ 0 ].gameObject.SetActive( true );
-
-        StartCoroutine( MenuTransition( howToPlayMenu, startMenu ) );
+        HowToPlayImages[ 0 ].gameObject.SetActive( true );
+        StartCoroutine( MenuTransition( HowToPlayMenu, StartMenu ) );
     }
 
     public void OpenCreditsMenu( )
     {
-        startMenu.TransitionOut( );
-        optionsMenu.TransitionOut( );
-
-        StartCoroutine( MenuTransition( creditsMenu, startMenu ) );
+        StartMenu.TransitionOut( );
+        StartCoroutine( MenuTransition( CreditsMenu, StartMenu ) );
     }
 
     IEnumerator MenuTransition( Menu menuIn, Menu menuOut )
     {
-        yield return new WaitForSeconds( transitionDelay );
+        yield return new WaitForSeconds( TransitionDelay );
         menuIn.TransitionIn( );
     }
 
     public void MoveToNextInstruction( int direction )
     {
-        howToPlayImages[ currentIndex ].gameObject.SetActive( false );
+        HowToPlayImages[ currentIndex ].gameObject.SetActive( false );
         currentIndex = ( direction == 1 ) ? currentIndex + 1 : currentIndex - 1;
 
         if ( currentIndex == -1 )
-        {
-            currentIndex = howToPlayImages.Length - 1;
-        }
-        else if ( currentIndex == howToPlayImages.Length )
-        {
+            currentIndex = HowToPlayImages.Length - 1;
+        else if ( currentIndex == HowToPlayImages.Length )
             currentIndex = 0;
-        }
 
-        howToPlayImages[ currentIndex ].gameObject.SetActive( true );
+        HowToPlayImages[ currentIndex ].gameObject.SetActive( true );
     }
 }

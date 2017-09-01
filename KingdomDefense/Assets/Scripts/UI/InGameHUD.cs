@@ -2,13 +2,15 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class InGameHUD : MonoBehaviour
 {
     public static InGameHUD Instance;
 
-    [Header( "Health and Money" )]
+    [Header( "Wave Stats" )]
     public Image HealthSlider;
+    public Image EnemyCountSlider;
     public Text GoldText;
 
     [Header( "Wave Indicator" )]
@@ -20,6 +22,7 @@ public class InGameHUD : MonoBehaviour
     [Header( "Wave Info" )]
     public Animator WaveInfoMenu;
     public Text WaveInfoText;
+    public Text NextWaveButtonText;
 
     private HorizontalLayoutGroup WaveIndicatorGrid;
 
@@ -73,12 +76,33 @@ public class InGameHUD : MonoBehaviour
 
         WaveInfoText.text = string.Format( "{0}\n{1}\n${2}\n${3}", waveNum, enemiesKilled, goldEarned, goldSpent );
 
+        if ( GameManager.Instance.WaveNumber >= GameManager.Instance.MaxWaveNum || GameManager.Instance.IsGameOver )
+            NextWaveButtonText.text = "Replay";
+
         WaveInfoMenu.SetBool( "MoveIn", moveIn );
     }
 
     public void GoToNextWave( )
     {
-        ToggleWaveInfoMenu( false );
-        GameManager.OnWaveStarted.Invoke( );
+        if ( GameManager.Instance.WaveNumber >= GameManager.Instance.MaxWaveNum || GameManager.Instance.IsGameOver )
+        {
+            SceneManager.LoadScene( SceneManager.GetActiveScene( ).buildIndex );
+        }
+        else
+        {
+            ToggleWaveInfoMenu( false );
+            GameManager.OnWaveStarted.Invoke( );
+        }
+    }
+
+    public void ResetEnemyCounter( )
+    {
+        EnemyCountSlider.fillAmount = 1.0f;
+    }
+
+    public void UpdateEnemyCounter( )
+    {
+        int numEnemiesLeft = GameManager.Instance.NumEnemiesToSpawn - GameManager.Instance.Stats.EnemiesKilled;
+        EnemyCountSlider.fillAmount = numEnemiesLeft / ( float )GameManager.Instance.NumEnemiesToSpawn;
     }
 }

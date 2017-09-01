@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     public int Gold { get; set; }
     public bool IsPaused { get; set; }
     public bool IsSpawningEnemies { get; set; }
+    public int NumEnemiesToSpawn { get; private set; }
+    public bool IsGameOver { get; set; }
     [HideInInspector]
     public WaveStats Stats;
 
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
 
         Gold = StartingGold;
         Board = GameObject.FindObjectOfType<BoardManager>( );
-        IsPaused = IsSpawningEnemies = false;
+        IsPaused = IsSpawningEnemies = IsGameOver = false;
 
         GameManager.OnUnitPurchased.AddListener( PurchaseUnit );
         GameManager.OnWaveStarted.AddListener( StartNextWave );
@@ -67,15 +69,14 @@ public class GameManager : MonoBehaviour
     public void Start( )
     {
         Board.InitBoard( );
+        WaveNumber = 0;
         GameManager.OnWaveStarted.Invoke( );
     }
 
     public void Update( )
     {
         if ( Input.GetKeyDown( KeyCode.P ) )
-        {
             InGameHUD.Instance.TogglePause( );
-        }
     }
 
     public bool HasEnoughGoldToPurchase( int amount )
@@ -108,16 +109,21 @@ public class GameManager : MonoBehaviour
 
     public void StartNextWave( )
     {
-        //SoundManager.Instance.PlayWaveStart( );
         Stats.Reset( );
+        WaveNumber++;
+        WaveNumber = ( WaveNumber >= MaxWaveNum ) ? MaxWaveNum : WaveNumber;
         StartCoroutine( SpawnEnemies( ) );
     }
 
     private IEnumerator SpawnEnemies( )
     {
+        InGameHUD.Instance.ResetEnemyCounter( );
         IsSpawningEnemies = true;
+
         yield return new WaitForSeconds( WaveStartDelay );
-        for ( int i = 0; i < Board.GetNumEnemiesToSpawn( ); i++ )
+
+        NumEnemiesToSpawn = Board.GetNumEnemiesToSpawn( );
+        for ( int i = 0; i < NumEnemiesToSpawn; i++ )
         {
             Board.SpawnEnemy( );
             float randSpawnDelay = Random.Range( EnemySpawnDelay.x, EnemySpawnDelay.y );
@@ -130,12 +136,18 @@ public class GameManager : MonoBehaviour
 
     public void ProcessEndOfWave( )
     {
-        WaveNumber++;
-        WaveNumber = Mathf.Clamp( WaveNumber, 1, MaxWaveNum );
         InGameHUD.Instance.ToggleWaveInfoMenu( true );
+    }
+
+    public void GameOver()
+    {
+        IsGameOver = true;
+        if ( !IsPaused ) TogglePause( );
+        ProcessEndOfWave( );
     }
 }
 
+#region Events
 [System.Serializable]
 public class UnitDropEvent : UnityEvent<FriendlyUnit>
 {
@@ -159,3 +171,4 @@ public class EnemyUnitDeathEvent : UnityEvent<EnemyUnit>
 {
 
 }
+#endregion

@@ -16,6 +16,10 @@ public class Projectile : MonoBehaviour
     [Range( 1f, 20f )]
     public float MoveSpeed = 4f;
 
+    [Header( "Imapct" )]
+    public bool SpawnImpact = false;
+    public GameObject ImpactEffect;
+
     private Vector2 Direction;
 
     protected bool HitTarget = false;
@@ -53,6 +57,13 @@ public class Projectile : MonoBehaviour
             }
 
             HitTarget = true;
+            if ( SpawnImpact && ImpactEffect != null )
+            {
+                Quaternion randomRot = UnityEngine.Random.rotation;
+                randomRot.x = randomRot.y = 0f;
+                GameObject effect = Instantiate( ImpactEffect, transform.position, randomRot ) as GameObject;
+                Destroy( effect, 2.0f );
+            }
 
             EnemyUnit enemy = other.GetComponent<EnemyUnit>( );
             if ( enemy == null ) return;

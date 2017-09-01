@@ -100,17 +100,14 @@ public class BoardManager : MonoBehaviour
     public void SpawnEnemy( )
     {
         int enemyCount = ( int )Random.Range( EnemyCount.x, EnemyCount.y );
-        //for ( int i = 0; i < enemyCount; i++ )
-        {
-            EnemyUnit enemy = EnemyPrefabs[ Random.Range( 0, EnemyPrefabs.Length ) ];
+        EnemyUnit enemy = EnemyPrefabs[ Random.Range( 0, EnemyPrefabs.Length ) ];
 
-            Vector2 spawnPos = GetRandomSpawnPos( );
+        Vector2 spawnPos = GetRandomSpawnPos( );
 
-            EnemyUnit enemyObject = Instantiate( enemy, spawnPos, Quaternion.identity ) as EnemyUnit;
-            enemyObject.transform.SetParent( BoardHolder );
+        EnemyUnit enemyObject = Instantiate( enemy, spawnPos, Quaternion.identity ) as EnemyUnit;
+        enemyObject.transform.SetParent( BoardHolder );
 
-            Enemies.Add( enemyObject );
-        }
+        Enemies.Add( enemyObject );
     }
 
     private void EnemyDeath( EnemyUnit enemy )
@@ -121,7 +118,9 @@ public class BoardManager : MonoBehaviour
             GameManager.Instance.Stats.EnemiesKilled++;
         }
 
-        if ( Enemies.Count <= 0 && !GameManager.Instance.IsSpawningEnemies )
+        InGameHUD.Instance.UpdateEnemyCounter( );
+
+        if ( GameManager.Instance.NumEnemiesToSpawn == GameManager.Instance.Stats.EnemiesKilled )
         {
             Enemies.Clear( );
             GameManager.Instance.ProcessEndOfWave( );

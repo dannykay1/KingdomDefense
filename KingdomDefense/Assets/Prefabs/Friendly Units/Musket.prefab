@@ -595,8 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d4b48e39141734096f82001d5cc108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealth: 10
-  Damage: 3
+  StartingHealth: 6
+  Damage: 1
   AnimationDelay: 0.417
   NextAttackDelay: 0.75
   Cost: 100

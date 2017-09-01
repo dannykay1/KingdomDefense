@@ -396,12 +396,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec66115715d0d744fa8b4fe7d08a1452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealth: 5
+  StartingHealth: 4
   Damage: 2
   AnimationDelay: 0.583
   NextAttackDelay: 0.5
   RewardValue: 15
-  MoveSpeed: 4
+  MoveSpeed: 3
 --- !u!114 &114676188889651334
 MonoBehaviour:
   m_ObjectHideFlags: 1

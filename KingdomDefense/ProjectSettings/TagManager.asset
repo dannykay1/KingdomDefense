@@ -60,3 +60,6 @@ TagManager:
   - name: Coin
     uniqueID: 117318175
     locked: 0
+  - name: Effects
+    uniqueID: 1150253225
+    locked: 0

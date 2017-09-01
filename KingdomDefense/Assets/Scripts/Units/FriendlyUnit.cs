@@ -20,35 +20,6 @@ public class FriendlyUnit : Unit
         base.Start( );
     }
 
-    private void OnTriggerEnter2D( Collider2D other )
-    {
-        if ( other.tag == "Enemy" )
-        {
-            EnemyUnit enemy = other.GetComponent<EnemyUnit>( );
-            if ( enemy == null ) return;
-
-            if ( !Enemies.Contains( enemy ) )
-                Enemies.Add( enemy );
-
-            StartCoroutine( "AttackWithDelay" );
-        }
-    }
-
-    private void OnTriggerExit2D( Collider2D other )
-    {
-        if ( other.tag == "Enemy" )
-        {
-            EnemyUnit enemy = other.GetComponent<EnemyUnit>( );
-            if ( enemy == null ) return;
-
-            if ( Enemies.Contains( enemy ) )
-                Enemies.Remove( enemy );
-
-            StopCoroutine( "AttackWithDelay" );
-            StopAttackAnim( );
-        }
-    }
-
     public override void Die( )
     {
         base.Die( );
